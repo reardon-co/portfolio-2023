@@ -4,6 +4,9 @@ import Stars from "../hero/Stars.astro"
 ---
 
 <div class="bg-wrapper">
+    <div class="hero-content">
+        <slot />
+    </div>
     <div class="bg-mask"></div>
     <div class="stars-wrapper">
         <Stars />
@@ -25,6 +28,16 @@ import Stars from "../hero/Stars.astro"
         justify-content: space-between;
         width: 100vw;
         height: 66vh;
+    }
+
+    .hero-content {
+        width: 100%;
+        height: 100%;
+        z-index: 4;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .bg-mask {

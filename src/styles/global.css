@@ -2,3 +2,7 @@ html {
     background: radial-gradient(84.62% 100.00% at 50.00% -0.00%, #291154 0%, #0B011D 100%);
     height: 100%;
 }
+
+html body {
+    margin: 0;
+}

@@ -1,5 +1,7 @@
 ---
 import HeroBackground from '../components/hero/HeroBackground.astro'
+import HeroContent from '../components/hero/HeroContent.astro'
+import SilverText from '../components/SilverText.astro'
 ---
 
 <html lang="en">
@@ -11,14 +13,19 @@ import HeroBackground from '../components/hero/HeroBackground.astro'
 		<title>Astro</title>
 	</head>
 	<body>
-		<HeroBackground />
+		<HeroBackground>
+			<HeroContent />
+		</HeroBackground>
 		
-		<h1>Astro</h1>
 	</body>
 </html>
 
 <style>
 	html {
 		background: #0B011D;
+	}
+
+	html body {
+		margin: 0;
 	}
 </style>
