@@ -1,0 +1,69 @@
+<div id="stars-wrapper"></div>
+
+<style>
+    #stars-wrapper {
+        position: absolute;
+        z-index: 3;
+        width: 100%;
+        height: 50%;
+    }
+</style>
+
+<script>
+    const starColors = ['#5A4D71', '#A097AF', 'white']
+    const parent = document.getElementById('stars-wrapper')
+
+    /**
+     * A function that generates a random integer within and including the two bounds provided.
+     * @param min the minimum integer the random integer can be (inclusive)
+     * @param max the maximum integer the random integer can be (inclusive)
+     */
+     function genRandomInt(min: number, max: number): number {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    /**
+     * A function that generates a random float between the two given bounds.
+     * @param min the minimum number the random integer can be (inclusive)
+     * @param max the maximum number the random integer can be (exclusive)
+     */
+     function genRandomFloat(min: number, max: number): number {
+        return Math.random() * (max - min) + min;
+    }
+
+        
+    function createStar(size: number) {
+        const star = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+        star.setAttributeNS(null, 'viewBox', `0 0 8 8`)
+        star.setAttributeNS(null, 'width', size.toString())
+        star.setAttributeNS(null, 'height', size.toString())
+        star.setAttributeNS(null, 'fill', "none")
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttributeNS(null, 'd', "M4 0L5.08036 2.91964L8 4L5.08036 5.08036L4 8L2.91964 5.08036L0 4L2.91964 2.91964L4 0Z")
+        path.setAttributeNS(null, 'fill', starColors[genRandomInt(0, 2)])
+        path.setAttributeNS(null, 'fill-opacity', genRandomFloat(0, 1).toString())
+
+        star.appendChild(path)
+        return star
+    }
+
+    function createStars(minStars: number, maxStars: number, size: number): void {
+        const starAmount = genRandomInt(minStars, maxStars)
+
+        for (let i = 0; i <= starAmount; i++) {
+            const wrapper = document.createElement('div')
+            wrapper.style.position = "absolute"
+            wrapper.style.top = `${genRandomFloat(0, 100)}%`
+            wrapper.style.left = `${genRandomFloat(0, 100)}%`
+            wrapper.appendChild(createStar(size))
+            parent?.appendChild(wrapper)
+        }
+    }
+
+    createStars(20, 50, 8)
+    createStars(10, 25, 10)
+    createStars(5, 15, 12)
+</script>
