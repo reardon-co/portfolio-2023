@@ -1,0 +1,34 @@
+---
+import NeonGrid from "./NeonGrid.astro";
+---
+
+<div class="bg-wrapper">
+    <div class="bg-mask"></div>
+    <div class="stars-wrapper"></div>
+    <div class="grid-wrapper">
+        <NeonGrid />
+    </div>
+</div>
+
+<style>
+    .bg-wrapper {
+        position: sticky;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100vw;
+        height: 66vh;
+    }
+
+    .bg-mask {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #000 25.52%, #2A0855 60.42%, rgba(11, 1, 29, 0.00) 100%);
+        z-index: 2;
+    }
+</style>
