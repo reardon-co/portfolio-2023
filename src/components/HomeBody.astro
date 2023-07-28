@@ -1,0 +1,41 @@
+---
+import Card from "./Card.astro";
+import { getCollection } from "astro:content";
+
+const cardCollection = await getCollection('cards');
+cardCollection.sort((a, b) => {return a.data.order - b.data.order})
+---
+<div class="body-wrapper">
+    <div class="grid-wrapper">
+        {cardCollection.map((entry) => (
+                <Card cardLink={entry.data.cardLink}>
+                    {entry.data.cardImage && <img slot="image" src={entry.data.cardImage?.src} alt={entry.data.cardImage?.alt} class="image"/>}
+                    <div slot="title">{entry.data.cardTitle}</div>
+                    <div slot="desc">{entry.data.cardDescription}</div>
+                </Card>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    .body-wrapper {
+        padding: 0 25%;
+    }
+    
+    .grid-wrapper {
+        column-count: 1;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+    }
+
+    @media only screen and (min-width: 600px) {
+        .grid-wrapper {
+        column-count: 2;
+        column-gap: 1.5rem;
+        }
+    }
+</style>

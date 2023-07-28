@@ -1,4 +1,5 @@
 ---
+import HomeBody from '../components/HomeBody.astro';
 import HeroBackground from '../components/hero/HeroBackground.astro'
 import HeroContent from '../components/hero/HeroContent.astro'
 ---
@@ -12,19 +13,32 @@ import HeroContent from '../components/hero/HeroContent.astro'
 		<title>Astro</title>
 	</head>
 	<body>
-		<HeroBackground>
-			<HeroContent />
-		</HeroBackground>
+		<div class="hero-wrapper">
+			<HeroBackground>
+				<HeroContent />
+			</HeroBackground>
+		</div>
+		<div class="home-content">
+			<HomeBody />
+		</div>
 		
 	</body>
 </html>
 
 <style>
 	html {
-		background: #0B011D;
+		background: radial-gradient(84.62% 100.00% at 50.00% -0.00%, #291154 0%, #0B011D 100%);
 	}
 
 	html body {
 		margin: 0;
+	}
+
+	.hero-wrapper {
+		height: 66vh;
+	}
+
+	.home-content {
+		margin: 10vh 0;
 	}
 </style>

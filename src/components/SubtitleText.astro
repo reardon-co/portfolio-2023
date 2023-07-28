@@ -1,4 +1,8 @@
-<h3>
+---
+const { isBold, isCenter } = Astro.props;
+---
+
+<h3 class:list={[isBold && "bold", isCenter && "center"]}>
     <slot />
 </h3>
 
@@ -11,7 +15,15 @@
         font-weight: 400;
         line-height: normal;
         margin: 0;
-        text-align: center
+        text-align: left;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .center {
+        text-align: center;
     }
 
     @media only screen and (min-width: 600px) {

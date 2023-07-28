@@ -1,8 +1,17 @@
 ---
 import '../styles/global.css'
 import BasicPageLayout from '../layouts/BasicPageLayout.astro'
+import SilverText from '../components/SilverText.astro';
+import Card from '../components/Card.astro';
 ---
 
 <BasicPageLayout title="About">
-<h1>About</h1>
+    <SilverText>About</SilverText>
+    <Card>
+        <div slot="desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi nunc, mollis sit amet vehicula sodales, efficitur eget ex. Nam et hendrerit turpis. Ut sed erat varius elit porttitor aliquet in ut ante. Vivamus imperdiet tincidunt quam ullamcorper scelerisque. Nulla sed tortor aliquam, pretium justo vitae, ornare nisl. Aliquam rutrum, elit vel rhoncus hendrerit, velit augue ullamcorper nulla, id hendrerit mi nibh eu lorem. Donec lacinia mi ac faucibus gravida. Donec euismod ultrices urna, nec hendrerit ex scelerisque a. Aliquam maximus tellus non erat convallis gravida. Mauris ex ipsum, tincidunt eu neque scelerisque, posuere porttitor libero. Integer eget ultrices justo. Nullam feugiat diam at dui efficitur aliquet. Donec sed bibendum lacus, sit amet suscipit arcu. Vestibulum tempus eros a posuere iaculis. Fusce vitae ex vitae risus maximus ultrices. Duis et facilisis risus, a semper mi.
+
+Proin tempus leo nisi, ac venenatis turpis semper quis. Maecenas enim nibh, efficitur sit amet purus nec, egestas varius massa. Suspendisse vehicula justo ac pellentesque fermentum. In non neque non libero volutpat convallis. Sed vehicula viverra purus eu facilisis. Nam non tristique orci. Maecenas molestie risus vitae laoreet suscipit. Nullam sed pulvinar ex, ac sollicitudin justo. Quisque tempor dictum odio vel aliquet. Praesent dignissim convallis risus sed vulputate. Quisque posuere lectus lorem, a tristique quam tempus gravida. Cras ac tincidunt est.
+        </div>
+    </Card>
 </BasicPageLayout>
