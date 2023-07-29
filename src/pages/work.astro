@@ -1,0 +1,58 @@
+---
+import SilverText from "../components/SilverText.astro";
+import SkillPill from "../components/SkillPill.astro";
+import SubtitleText from "../components/SubtitleText.astro";
+import WorkCard from "../components/WorkCard.astro";
+import BasicPageLayout from "../layouts/BasicPageLayout.astro";
+import { getCollection } from "astro:content";
+
+const SKILL_ICON_MAP = {
+    "react": "/react-icon.svg",
+    "tailwind": "/tailwind-icon.svg"
+}
+
+const workCollection = await getCollection('works')
+---
+
+<BasicPageLayout title="Work">
+    <div class="title-wrapper">
+        <SilverText>Selected Work</SilverText>
+        <SubtitleText isCenter>My favorite professional and personal projects</SubtitleText>
+    </div>
+    <div class="work-cards-wrapper">
+        {workCollection.map((work) => (
+            <WorkCard linkTo={work.data.linkTo}>
+                <img slot="thumbnail" src={work.data.thumbnail.src} />
+                <div slot="title">{work.data.name}</div>
+                <div slot="description">{work.data.description}</div>
+                <div slot="skill pills" class="pills-wrapper">
+                    {work.data.tech.map((skill: string) => (
+                        <SkillPill>
+                            <div slot="name">{skill}</div>
+                            <img slot="icon" src={SKILL_ICON_MAP[skill]} />
+                        </SkillPill>
+                    ))}
+                </div>
+            </WorkCard>
+        ))}
+    </div>
+</BasicPageLayout>
+
+<style>
+    .title-wrapper {
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+    }
+    .work-cards-wrapper {
+        padding: 0 12.5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pills-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+</style>
