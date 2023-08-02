@@ -9,6 +9,10 @@ const cardCollection = defineCollection({
             src: z.string(),
             alt: z.string()
         }).optional(),
+        slides: z.array(z.object({
+            src: z.string(),
+            alt: z.string()
+        })).optional(),
         cardLink: z.string().optional(),
         order: z.number(),
     }),
@@ -24,6 +28,10 @@ const worksCollection = defineCollection({
             alt: z.string()
         }),
         linkTo: z.string(),
+        secondaryLink: z.object({
+            href: z.string(),
+            label: z.string()
+        }).optional(),
         date: z.date(),
         tech: z.array(z.string()),
     }),

@@ -1,8 +1,21 @@
-html {
+html body {
     background: radial-gradient(84.62% 100.00% at 50.00% -0.00%, #291154 0%, #0B011D 100%);
+    margin: 0;
     height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-html body {
-    margin: 0;
+a {
+    color: #E272F4;
+    font-family: Inter;
+}
+
+a:hover {
+    color: #C81EE3
+}
+
+body {
+    padding-bottom: 2rem;
 }

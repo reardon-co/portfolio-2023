@@ -1,6 +1,7 @@
 ---
 import Card from "./Card.astro";
 import { getCollection } from "astro:content";
+import ImageCarousel from "./ImageCarousel.astro";
 
 const cardCollection = await getCollection('cards');
 cardCollection.sort((a, b) => {return a.data.order - b.data.order})
@@ -10,6 +11,7 @@ cardCollection.sort((a, b) => {return a.data.order - b.data.order})
         {cardCollection.map((entry) => (
                 <Card cardLink={entry.data.cardLink}>
                     {entry.data.cardImage && <img slot="image" src={entry.data.cardImage?.src} alt={entry.data.cardImage?.alt} class="image"/>}
+                    {entry.data.slides && <ImageCarousel images={entry.data.slides} slot="image" />}
                     <div slot="title">{entry.data.cardTitle}</div>
                     <div slot="desc">{entry.data.cardDescription}</div>
                 </Card>

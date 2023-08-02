@@ -6,9 +6,12 @@ import WorkCard from "../components/WorkCard.astro";
 import BasicPageLayout from "../layouts/BasicPageLayout.astro";
 import { getCollection } from "astro:content";
 
-const SKILL_ICON_MAP = {
+const SKILL_ICON_MAP: Record<string, string> = {
     "react": "/react-icon.svg",
-    "tailwind": "/tailwind-icon.svg"
+    "tailwind": "/tailwind-icon.svg",
+    "HTML": "/html-icon.svg",
+    "CSS": "/css-icon.svg",
+    "astro": "/astro-icon.svg"
 }
 
 const workCollection = await getCollection('works')
@@ -22,9 +25,10 @@ const workCollection = await getCollection('works')
     <div class="work-cards-wrapper">
         {workCollection.map((work) => (
             <WorkCard linkTo={work.data.linkTo}>
-                <img slot="thumbnail" src={work.data.thumbnail.src} />
+                <img slot="thumbnail" src={work.data.thumbnail.src} class="image" />
                 <div slot="title">{work.data.name}</div>
                 <div slot="description">{work.data.description}</div>
+                {work.data.secondaryLink && <a slot="secondary-link" href={work.data.secondaryLink.href}>{work.data.secondaryLink.label}</a>}
                 <div slot="skill pills" class="pills-wrapper">
                     {work.data.tech.map((skill: string) => (
                         <SkillPill>
@@ -48,6 +52,12 @@ const workCollection = await getCollection('works')
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 2rem;
+    }
+
+    .image {
+        width: 420px;
+        height: auto;
     }
 
     .pills-wrapper {
