@@ -2,70 +2,79 @@
 import BodyText from "./BodyText.astro";
 import SubtitleText from "./SubtitleText.astro";
 
-const {linkTo} = Astro.props
+const { linkTo } = Astro.props;
 ---
 
 <work-card data-linkto={linkTo}>
-    <div class="card-wrapper" id="work-card">
-        <div class="image-wrapper">
-            <slot name="thumbnail" />
-        </div>
-        <div class="text-wrapper">
-            <SubtitleText>
-                <slot name="title" />
-            </SubtitleText>
-            <BodyText>
-                <slot name="description" />
-                <slot name="secondary-link" />
-            </BodyText>
-            <div class="skills-wrapper">
-                <slot name="skill pills" />
-            </div>
-        </div>
-        <img src="/link-icon.svg" alt="A icon of an arrow pointing out of a box meant to represent an external link"/>
+  <div class="card-wrapper" id="work-card">
+    <div class="image-wrapper">
+      <slot name="thumbnail" />
     </div>
+    <div class="text-wrapper">
+      <SubtitleText>
+        <slot name="title" />
+      </SubtitleText>
+      <BodyText>
+        <slot name="description" />
+        <slot name="secondary-link" />
+      </BodyText>
+      <div class="skills-wrapper">
+        <slot name="skill pills" />
+      </div>
+    </div>
+    <img
+      src="/link-icon.svg"
+      alt="A icon of an arrow pointing out of a box meant to represent an external link"
+    />
+  </div>
 </work-card>
 
 <script>
-    class WorkCard extends HTMLElement {
-        constructor() {
-            super()
+  class WorkCard extends HTMLElement {
+    constructor() {
+      super();
 
-            const linkTo = this.dataset.linkto
-            const workCard = this.querySelector("#work-card")
+      const linkTo = this.dataset.linkto;
+      const workCard = this.querySelector("#work-card");
 
-            if (linkTo) {
-                workCard?.addEventListener("click", () => {
-                    location.href = linkTo
-                })
-            }
-        }
+      if (linkTo) {
+        workCard?.addEventListener("click", () => {
+          location.href = linkTo;
+        });
+      }
     }
+  }
 
-    customElements.define('work-card', WorkCard)
+  customElements.define("work-card", WorkCard);
 </script>
 
 <style>
-    .card-wrapper {
-        padding: 1.25rem;
-        display: flex;
-        flex-direction: row;
-        gap: 1.5rem;
-        border-radius: 0.75rem;
-        background: linear-gradient(214deg, rgba(192, 102, 255, 0.12) 0%, rgba(15, 4, 37, 0.00) 50%, rgba(48, 15, 109, 0.34) 100%);
-        border: 1px solid rgba(90, 77, 113, 1);
-        cursor: pointer;
-        transition: box-shadow 0.2s ease-in-out;
-    }
+  .card-wrapper {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(
+      214deg,
+      rgba(192, 102, 255, 0.12) 0%,
+      rgba(15, 4, 37, 0) 50%,
+      rgba(48, 15, 109, 0.34) 100%
+    );
+    border: 1px solid rgba(90, 77, 113, 1);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in-out;
+    width: 100%;
+  }
 
-    .card-wrapper:hover {
-        box-shadow: 0px 0px 100px 10px rgba(151, 71, 255, 0.30) inset;
-    }
-    
-    .text-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 0.75rem;
-    }
+  .card-wrapper:hover {
+    box-shadow: 0px 0px 100px 10px rgba(151, 71, 255, 0.3) inset;
+  }
+
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+  }
 </style>

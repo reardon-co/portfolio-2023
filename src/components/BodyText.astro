@@ -1,26 +1,26 @@
 <div>
-    <slot />
+  <slot />
 </div>
 
 <style>
+  div {
+    color: #c9b5ed;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-size: 0.75rem;
+  }
+
+  @media only screen and (min-width: 600px) {
     div {
-        color: #C9B5ED;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        font-size: 0.75rem;
+      font-size: 1rem;
     }
+  }
 
-    @media only screen and (min-width: 600px) {
-        div {
-            font-size: 1rem;
-        }
+  @media only screen and (min-width: 992px) {
+    div {
+      font-size: 1.25rem;
     }
-
-    @media only screen and (min-width: 992px) {
-        div {
-            font-size: 1.25rem;
-        }
-    }
+  }
 </style>

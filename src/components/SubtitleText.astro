@@ -3,38 +3,38 @@ const { isBold, isCenter } = Astro.props;
 ---
 
 <h3 class:list={[isBold && "bold", isCenter && "center"]}>
-    <slot />
+  <slot />
 </h3>
 
 <style>
+  h3 {
+    color: #c9b5ed;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    text-align: left;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 600px) {
     h3 {
-        color: #C9B5ED;
-        font-family: Inter;
-        font-size: 1rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin: 0;
-        text-align: left;
+      font-size: 1.25rem;
     }
+  }
 
-    .bold {
-        font-weight: bold;
+  @media only screen and (min-width: 992px) {
+    h3 {
+      font-size: 1.5rem;
     }
-
-    .center {
-        text-align: center;
-    }
-
-    @media only screen and (min-width: 600px) {
-        h3 {
-            font-size: 1.25rem;
-        }
-    }
-
-    @media only screen and (min-width: 992px) {
-        h3 {
-            font-size: 1.5rem;
-        }
-    }
+  }
 </style>
