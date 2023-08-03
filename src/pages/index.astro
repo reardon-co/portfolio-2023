@@ -1,44 +1,48 @@
 ---
-import HomeBody from '../components/HomeBody.astro';
-import HeroBackground from '../components/hero/HeroBackground.astro'
-import HeroContent from '../components/hero/HeroContent.astro'
+import HomeBody from "../components/HomeBody.astro";
+import HeroBackground from "../components/hero/HeroBackground.astro";
+import HeroContent from "../components/hero/HeroContent.astro";
+import "@fontsource-variable/inter";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<div class="hero-wrapper">
-			<HeroBackground>
-				<HeroContent />
-			</HeroBackground>
-		</div>
-		<div class="home-content">
-			<HomeBody />
-		</div>
-		
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <div class="hero-wrapper">
+      <HeroBackground>
+        <HeroContent />
+      </HeroBackground>
+    </div>
+    <div class="home-content">
+      <HomeBody />
+    </div>
+  </body>
 </html>
 
 <style>
-	html {
-		background: radial-gradient(84.62% 100.00% at 50.00% -0.00%, #291154 0%, #0B011D 100%);
-	}
+  html {
+    background: radial-gradient(
+      84.62% 100% at 50% -0%,
+      #291154 0%,
+      #0b011d 100%
+    );
+  }
 
-	html body {
-		margin: 0;
-	}
+  html body {
+    margin: 0;
+  }
 
-	.hero-wrapper {
-		height: 66vh;
-	}
+  .hero-wrapper {
+    height: 66vh;
+  }
 
-	.home-content {
-		margin: 10vh 0;
-	}
+  .home-content {
+    margin: 10vh 0;
+  }
 </style>
