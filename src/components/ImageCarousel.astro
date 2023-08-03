@@ -40,10 +40,10 @@ const { images } = Astro.props
     left: 0;
   }
   95% {
-    left: -300%;
+    left: -900%;
   }
   98% {
-    left: -300%;
+    left: -900%;
   }
   99% {
     left: 0;
@@ -82,7 +82,7 @@ ol, li {
 .carousel__viewport {
   width: 100%;
   display: flex;
-  overflow-x: hidden;
+  overflow-x: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 }
@@ -127,3 +127,14 @@ ol, li {
   }
 }
 </style>
+
+<script>
+    document.querySelector(".carousel__viewport")?.addEventListener('wheel', preventScroll, {passive: false})
+
+    function preventScroll(e: Event) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        return false
+    }
+</script>

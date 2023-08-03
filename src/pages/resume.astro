@@ -1,0 +1,17 @@
+---
+import BasicPageLayout from "../layouts/BasicPageLayout.astro";
+
+---
+
+<BasicPageLayout title="Resume">
+    <div class="resume-wrapper">
+        <embed src="/resume.pdf" type="application/pdf" width="100%" height="100%" />
+    </div>
+    
+</BasicPageLayout>
+
+<style>
+    .resume-wrapper {
+        height: 100vh;
+    }
+</style>

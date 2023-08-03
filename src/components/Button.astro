@@ -1,8 +1,8 @@
 ---
-const { className } = Astro.props;
+const { className, toResume } = Astro.props;
 ---
 
-<button class={className}>
+<button class:list={[className, toResume && "resume-button"]} class={className}>
     <slot />
 </button>
 
@@ -45,3 +45,10 @@ const { className } = Astro.props;
         box-shadow: 0px 0px 24px 0px #C066FF inset;
     }
 </style>
+
+<script>
+    const button = document.querySelector(".resume-button")
+    button?.addEventListener("click", () => {
+        location.href = "/resume/"
+    })
+</script>
