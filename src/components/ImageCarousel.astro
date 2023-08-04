@@ -15,7 +15,7 @@ const { images } = Astro.props;
     {
       images.map((image) => (
         <li class="carousel-slide">
-          <Image src={image.src} alt={image.alt} class="image" />
+          <Image src={image.src} alt={image.alt} class="image" quality="low" />
           <div class="carousel__snapper" />
         </li>
       ))
