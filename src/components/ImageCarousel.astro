@@ -112,18 +112,15 @@ const { images } = Astro.props;
     height: 100%;
     scroll-snap-align: center;
   }
+  .carousel__snapper {
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
 
-  @media (hover: hover) {
-    .carousel__snapper {
-      animation-name: tonext, snap;
-      animation-timing-function: ease;
-      animation-duration: 4s;
-      animation-iteration-count: infinite;
-    }
-
-    .carousel-slide:last-child .carousel__snapper {
-      animation-name: tostart, snap;
-    }
+  .carousel-slide:last-child .carousel__snapper {
+    animation-name: tostart, snap;
   }
 
   @media (prefers-reduced-motion: reduce) {
