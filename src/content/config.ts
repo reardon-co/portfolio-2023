@@ -2,15 +2,15 @@ import {z, defineCollection } from 'astro:content';
 
 const cardCollection = defineCollection({
     type: 'content',
-    schema: z.object({
+    schema: ({ image }) => z.object({
         cardTitle: z.string(),
         cardDescription: z.string().optional(),
         cardImage: z.object({
-            src: z.string(),
+            src: image(),
             alt: z.string()
         }).optional(),
         slides: z.array(z.object({
-            src: z.string(),
+            src: image(),
             alt: z.string()
         })).optional(),
         cardLink: z.string().optional(),
@@ -20,11 +20,11 @@ const cardCollection = defineCollection({
 
 const worksCollection = defineCollection({
     type: 'content',
-    schema: z.object({
+    schema: ({ image }) => z.object({
         name: z.string(),
         description: z.string(),
         thumbnail: z.object({
-            src: z.string(),
+            src: image(),
             alt: z.string()
         }),
         linkTo: z.string(),

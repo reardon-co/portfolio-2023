@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import BodyText from "./BodyText.astro";
 import SubtitleText from "./SubtitleText.astro";
+import linkIcon from "../assets/link-icon.svg";
 
 const { linkTo } = Astro.props;
 ---
@@ -22,8 +24,8 @@ const { linkTo } = Astro.props;
         <slot name="skill pills" />
       </div>
     </div>
-    <img
-      src="/link-icon.svg"
+    <Image
+      src={linkIcon}
       alt="A icon of an arrow pointing out of a box meant to represent an external link"
     />
   </div>
