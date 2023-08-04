@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import scrollSnapPolyfill from "css-scroll-snap-polyfill";
 interface Props {
   images: {
     src: string;
@@ -131,6 +132,8 @@ const { images } = Astro.props;
 </style>
 
 <script>
+  scrollSnapPolyfill();
+
   document
     .querySelector(".carousel__viewport")
     ?.addEventListener("wheel", preventScroll, { passive: false });
