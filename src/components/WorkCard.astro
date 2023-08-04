@@ -27,6 +27,7 @@ const { linkTo } = Astro.props;
     <Image
       src={linkIcon}
       alt="A icon of an arrow pointing out of a box meant to represent an external link"
+      class="link-icon"
     />
   </div>
 </work-card>
@@ -54,7 +55,8 @@ const { linkTo } = Astro.props;
   .card-wrapper {
     padding: 1.25rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
     border-radius: 0.75rem;
     background: linear-gradient(
@@ -73,10 +75,29 @@ const { linkTo } = Astro.props;
     box-shadow: 0px 0px 100px 10px rgba(151, 71, 255, 0.3) inset;
   }
 
+  .image-wrapper {
+    max-width: 420px;
+    height: auto;
+    flex-grow: 1;
+  }
+
   .text-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 0.75rem;
+    flex-grow: 2;
+  }
+
+  .link-icon {
+    max-width: 100%;
+    height: auto;
+    flex-grow: 1;
+  }
+
+  @media only screen and (min-width: 992px) {
+    .card-wrapper {
+      flex-direction: row;
+    }
   }
 </style>
