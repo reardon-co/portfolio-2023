@@ -1,31 +1,47 @@
 ---
-import '../styles/global.css'
-import BasicPageLayout from '../layouts/BasicPageLayout.astro'
-import SilverText from '../components/SilverText.astro';
-import Card from '../components/Card.astro';
-import {Content as AboutContent} from "../markdown/about-content.md"
+import "../styles/global.css";
+import BasicPageLayout from "../layouts/BasicPageLayout.astro";
+import SilverText from "../components/SilverText.astro";
+import Card from "../components/Card.astro";
+import { Content as AboutContent } from "../markdown/about-content.md";
 ---
 
 <BasicPageLayout title="About">
-    <SilverText>About</SilverText>
-    <div class="card-wrapper">
-       <Card>
-            <div slot="desc" class="letter-wrapper">
-                <AboutContent />
-            </div>
-        </Card> 
-    </div>
-    
+  <div class="title-wrapper">
+    <SilverText>About Me</SilverText>
+  </div>
+  <div class="card-wrapper">
+    <Card>
+      <div slot="desc" class="letter-wrapper">
+        <AboutContent />
+      </div>
+    </Card>
+  </div>
 </BasicPageLayout>
 
 <style>
+  .title-wrapper {
+    margin-top: 1rem;
+  }
+
+  .card-wrapper {
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+  }
+
+  .letter-wrapper {
+    padding: 0.5rem;
+  }
+
+  @media only screen and (min-width: 600px) {
     .card-wrapper {
-        width: 50%;
-        margin: auto;
-        margin-top: 2rem
+      width: 50%;
+      margin-top: 2rem;
     }
 
     .letter-wrapper {
-        padding: 2rem;
+      padding: 2rem;
     }
+  }
 </style>
