@@ -7,14 +7,6 @@ import WorkCard from "../components/WorkCard.astro";
 import BasicPageLayout from "../layouts/BasicPageLayout.astro";
 import { getCollection } from "astro:content";
 
-const SKILL_ICON_MAP: Record<string, string> = {
-  react: "../src/assets/react-icon.svg",
-  tailwind: "../src/assets/tailwind-icon.svg",
-  HTML: "../src/assets/html-icon.svg",
-  CSS: "../src/assets/css-icon.svg",
-  astro: "../src/assets/astro-icon.svg",
-};
-
 const workCollection = await getCollection("works");
 ---
 
@@ -45,11 +37,11 @@ const workCollection = await getCollection("works");
           <div slot="skill pills" class="pills-wrapper">
             {work.data.tech.map((skill: string) => (
               <SkillPill>
-                <div slot="name">{skill}</div>
+                <div slot="name">{skill.title}</div>
                 <Image
                   slot="icon"
-                  src={SKILL_ICON_MAP[skill]}
-                  alt="logo for the technology"
+                  src={skill.logo}
+                  alt={`A logo icon for ${skill.name}`}
                   width={25}
                   height={25}
                 />

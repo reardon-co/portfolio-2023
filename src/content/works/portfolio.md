@@ -7,5 +7,5 @@ thumbnail: {
 }
 linkTo: https://github.com/reardon-co/portfolio-2023
 date: 2023-07-01
-tech: ["astro", "HTML", "CSS"]
+tech: [{logo: "../../assets/astro-icon.svg", title: "Astro"}, {logo: "../../assets/html-icon.svg", title: "HTML"}, {logo: "../../assets/css-icon.svg", title: "CSS"}]
 ---

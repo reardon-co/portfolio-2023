@@ -11,5 +11,5 @@ secondaryLink: {
     label: GitHub
 }
 date: 2023-04-01
-tech: ["react", "tailwind", "HTML", "CSS"]
+tech: [{logo: "../../assets/react-icon.svg", title: "React"}, {logo: "../../assets/tailwind-icon.svg", title: "Tailwind"}, {logo: "../../assets/html-icon.svg", title: "HTML"}, {logo: "../../assets/css-icon.svg", title: "CSS"}]
 ---

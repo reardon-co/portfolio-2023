@@ -33,7 +33,10 @@ const worksCollection = defineCollection({
             label: z.string()
         }).optional(),
         date: z.date(),
-        tech: z.array(z.string()),
+        tech: z.array(z.object({
+            logo: image(),
+            title: z.string()
+        }))
     }),
 })
 

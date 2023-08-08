@@ -7,5 +7,5 @@ thumbnail: {
 }
 linkTo: https://github.com/Code-4-Community/constellation
 date: 2023-05-01
-tech: ["react"]
+tech: [{logo: "../../assets/react-icon.svg", title: "React"}]
 ---

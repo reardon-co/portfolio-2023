@@ -7,5 +7,5 @@ thumbnail: {
 }
 linkTo: "https://startrek.xyz/"
 date: 2022-07-01
-tech: ["react", "tailwind"]
+tech: [{logo: "../../assets/react-icon.svg", title: "React"}, {logo: "../../assets/tailwind-icon.svg", title: "Tailwind"}]
 ---
