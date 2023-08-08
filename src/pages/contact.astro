@@ -12,21 +12,25 @@ import Button from "../components/Button.astro";
   <div class="card-wrapper">
     <Card>
       <div slot="desc">
-        <form class="my-form">
-          <div class="contact">
-            <label for="name">Name/Company</label>
-            <input type="text" id="name" />
+        <div class="form-wrapper">
+          <form class="my-form" id="contact-form">
+            <div class="contact">
+              <label for="name">Name/Company</label>
+              <input type="text" id="name" />
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email" />
-
-            <button type="submit">Submit</button>
-          </div>
-          <div class="message">
-            <label for="msg">Message</label>
-            <textarea id="msg" placeholder="Start writing here"></textarea>
-          </div>
-        </form>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" />
+            </div>
+            <div class="message">
+              <label for="msg">Message</label>
+              <textarea id="msg" placeholder="Start writing here" rows="4"
+              ></textarea>
+            </div>
+          </form>
+          <button type="submit" class="submit-button" form="contact-form">
+            Submit
+          </button>
+        </div>
       </div>
     </Card>
   </div>
@@ -37,15 +41,19 @@ import Button from "../components/Button.astro";
     box-sizing: border-box;
   }
 
+  .form-wrapper {
+    padding: 0.5rem;
+  }
+
   .card-wrapper {
-    width: 50%;
+    width: 90%;
     margin: auto;
     margin-top: 2rem;
   }
   .my-form {
     display: flex;
+    flex-direction: column;
     border-radius: 12px;
-    padding: 1.8em;
   }
   .message {
     display: flex;
@@ -74,7 +82,6 @@ import Button from "../components/Button.astro";
   .contact {
     flex: 1;
     order: 1;
-    margin-right: 2em;
   }
   .contact input {
     width: 100%;
@@ -105,6 +112,25 @@ import Button from "../components/Button.astro";
 
   .message > textarea::-ms-input-placeholder {
     color: #a073f4;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .form-wrapper {
+      padding: 2rem;
+    }
+    .my-form {
+      flex-direction: row;
+    }
+
+    .contact {
+      margin-right: 2em;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .card-wrapper {
+      width: 50%;
+    }
   }
 
   /* Copying Button styles over */
