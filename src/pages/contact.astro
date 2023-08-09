@@ -13,7 +13,12 @@ import Button from "../components/Button.astro";
     <Card>
       <div slot="desc">
         <div class="form-wrapper">
-          <form class="my-form" id="contact-form">
+          <form
+            class="my-form"
+            id="contact-form"
+            data-netlify="true"
+            name="contact"
+          >
             <div class="contact">
               <label for="name">Name/Company</label>
               <input type="text" id="name" />
