@@ -18,18 +18,22 @@ import Button from "../components/Button.astro";
             id="contact-form"
             data-netlify="true"
             name="contact"
+            method="POST"
           >
             <div class="contact">
               <label for="name">Name/Company</label>
-              <input type="text" id="name" />
+              <input type="text" id="name" name="name" />
 
               <label for="email">Email Address</label>
-              <input type="email" id="email" />
+              <input type="email" id="email" name="email" />
             </div>
             <div class="message">
               <label for="msg">Message</label>
-              <textarea id="msg" placeholder="Start writing here" rows="4"
-              ></textarea>
+              <textarea
+                id="msg"
+                placeholder="Start writing here"
+                rows="4"
+                name="message"></textarea>
             </div>
           </form>
           <button type="submit" class="submit-button" form="contact-form">
