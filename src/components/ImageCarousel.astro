@@ -9,7 +9,13 @@ import "swiper/css";
     {
       images.map((image) => (
         <div class="swiper-slide">
-          <Image src={image.src} alt={image.alt} class="image" quality="low" />
+          <Image
+            src={image.src}
+            alt={image.alt}
+            class="image"
+            quality="low"
+            loading="eager"
+          />
         </div>
       ))
     }
